@@ -1,0 +1,51 @@
+<div class="container-fluid" mt-3>
+    <div class="row">
+      <div class="col-sm-6 p-3">
+        <p class="about-us mb-5">Reach out to Greno Cleaners for exceptional garment and home care services.Your satisfaction is our Priority.</p>
+        <div class="phone mb-5">
+            <i class="fa-solid fa-phone"></i>
+            <span class="about-us"> Phone:[{{contactDetails.NUMBER}},{{contactDetails.ALTNUMBER}}]</span><br>
+        </div>
+        <div class="email mb-5">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="about-us"> Email:{{contactDetails.EMAIL}}</span><br>
+        </div>
+        <div class="address mb-5">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="about-us"> Address:{{contactDetails.ADDRESS}}</span><br>
+        </div>
+        <p class="about-us mb-5">Experience convenience and quality like never before with Greno Cleaners.Your satisfaction is our priority.</p>
+      </div>
+      <div class="col-sm-6  p-3">
+        <h2 class="about-us">Contact Us</h2>
+        <form>
+            <div class="mb-3 mt-3">
+              <label for="name" class="form-label">Name:</label>
+              <input type="text" class="form-control" id="name" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email"  name="email">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone:</label>
+                <input type="email" class="form-control" id="phone"  name="phone">
+            </div>
+            <div class="mb-3">
+                <label for="services" class="form-label">Services:</label>
+                <div class="dropdown">
+                    <select id="selectedService" class="form-control col-12">
+                        <option value="" disabled selected>Choose Services</option>
+                        <option *ngFor="let service of services" [value]="service">{{service}}</option>
+                    </select><br><br>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="services" class="form-label">Message:</label>
+                <textarea type="text" class="form-control" rows="10"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>

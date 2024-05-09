@@ -1,0 +1,23 @@
+.pickup-drop-container{
+    background-image: url('../../assets/images/background1.jpg');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+.pickup-drop-head{
+    font-size: 37px;
+    
+}
+
+.btn.btn-primary{
+ background-color: #000B6E;
+}
+.modal{
+    overflow-y: auto;
+}
+::ng-deep .mat-datepicker-content{
+    z-index: 1050 !important;
+}

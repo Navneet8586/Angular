@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row border border-2 mt-5" >
+        <div class="form-group">
+            <div class="input-group pt-2" >
+                <input type="text" class="form-control" [(ngModel)]="womensSearchTerm" (input)="filterData('Womens Wear')">
+                <button class="input-group-text bg bg-primary" (click)="search()">Search</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Womens Wear</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of womenswear">
+                <td>{{item.itemName}}</td>
+                <td>{{item.price}}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row border border-2 mt-5" >
+        <div class="form-group">
+            <div class="input-group pt-2" >
+                <input type="text" class="form-control" [(ngModel)]="mensSearchTerm" (input)="filterData('Mens Wear')">
+                <button class="input-group-text bg bg-primary" (click)="search()">Search</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Mens Wear</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of menswearpage">
+                    <td>{{item.itemName}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination mr-10">
+            <li class="page-item" (click)="prevPage()"  [class.disabled]="currentPage===1"><a class="page-link" >Previous</a></li>
+            <li class="page-item" (click)="goToPage(1)" [class.active]="currentPage===1"><a class="page-link" >1</a></li>
+            <li class="page-item" (click)="goToPage(2)" [class.active]="currentPage===2"><a class="page-link" (click)="goToPage(2)">2</a></li>
+            <li class="page-item" (click)="nextPage()"  [class.disabled]="currentPage===2"><a class="page-link">Next</a></li>
+        </ul>
+    </div>
+    <div class="row border border-2 mt-5" >
+        <div class="form-group">
+            <div class="input-group pt-2" >
+                <input type="text" class="form-control" [(ngModel)]="carpetSearchTerm" (input)="filterData('Carpet')">
+                <button class="input-group-text bg bg-primary" (click)="search()">Search</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Carpet</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of carpet">
+                    <td>{{item.itemName}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
