@@ -6,5 +6,14 @@
 <section id="contact-us">
     <app-about-us></app-about-us>
 </section>
+<button  class="btn btn-primary" id="sideBtn" (click)="showContactBtn()"><i class="fa-solid fa-arrow-left"></i></button>
+<button class="btn btn-primary" id="contactBtn">
+    <i class="fa-solid fa-arrow-right" (click)="hideContactBtn()"></i>
+    <div class="icons">
+        <i class="fa-brands fa-whatsapp"></i><br>
+        <i class="fa-solid fa-phone"></i>
+    </div>
+</button>
+<button  class="btn btn-primary" id="moveToTop" (click)="moveToTop()"> Top</button>
 
 

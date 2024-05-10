@@ -1,0 +1,33 @@
+#moveToTop{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+}
+#moveToTop.show,
+#sideBtn.show,
+#contactBtn.show{
+    display: block;
+}
+
+#sideBtn.hide,
+#contactBtn.hide{
+    display: none;
+}
+#sideBtn{
+    position: fixed;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    z-index: 99;
+}
+
+#contactBtn{
+    position: fixed;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    z-index: 99;
+    display: none;
+}

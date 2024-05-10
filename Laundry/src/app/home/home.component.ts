@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit ,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
 
   constructor( private elementRef:ElementRef) { }
 
@@ -20,4 +21,35 @@ export class HomeComponent implements OnInit {
     contactUs.scrollIntoView({behaviour:'smooth'})
   }
 
+  moveToTop(){
+    window.scroll({top:0,left:0,behavior:'smooth'});
+  }
+
+  showContactBtn(){
+    const sideBtn=document.getElementById('sideBtn');
+    sideBtn?.classList.add('hide');
+    const contactBtn=document.getElementById('contactBtn');
+    contactBtn?.classList.add('show');
+  }
+
+  hideContactBtn(){
+    const contactBtn=document.getElementById('contactBtn');
+    contactBtn?.classList.remove('show');
+    const sideBtn=document.getElementById('sideBtn');
+    sideBtn?.classList.remove('hide');    
+  }
+
+  @HostListener('window:scroll',[])
+  onWindowScroll(){
+    const scrollToTop=document.getElementById('moveToTop');
+    if(scrollToTop){
+      if(window.scrollY>250){
+        scrollToTop.classList.add('show');
+      } else{
+        scrollToTop.classList.remove('show');
+      }
+    }
+  }
+
 }
+
