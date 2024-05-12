@@ -1,12 +1,15 @@
-<div classs="container">
+
 <section id="header">
-    <app-header (contactUsClicked)="scrollToContactUs()"></app-header>
+    <app-header
+     (contactUsClicked)="scrollToContactUs()" 
+     (ourServicesClicked)="scrollToOurServices()"
+     ></app-header>
 </section>
 <section id="pickup-drop">
    <app-pickup-drop></app-pickup-drop>
 </section>
 <section id="our-services">
-    <app-our-services></app-our-services>
+    <app-our-services ></app-our-services>
 </section>
 <section id="contact-us">
     <app-about-us></app-about-us>
@@ -29,7 +32,7 @@
 <section id="footer">
     <app-footer></app-footer>
 </section>
-</div>
+
 
 
 

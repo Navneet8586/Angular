@@ -12,4 +12,6 @@ export class OurServicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }

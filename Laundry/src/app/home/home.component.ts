@@ -14,6 +14,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollToOurServices(){
+    console.log("our services");
+
+    const contactUs=this.elementRef.nativeElement.querySelector('#our-services');
+    contactUs.scrollIntoView({behaviour:'smooth'})
+  }
+
   scrollToContactUs(){
     console.log("called");
 

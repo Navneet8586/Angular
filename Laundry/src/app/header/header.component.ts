@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   isopen:boolean=false;
 
   @Output() contactUsClicked:EventEmitter<void>=new EventEmitter<void>();
+  @Output() ourServicesClicked:EventEmitter<void>=new EventEmitter<void>();
  
 
   constructor( private route:ActivatedRoute,private router:Router) { }
@@ -23,6 +24,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['./']);
     this.contactUsClicked.emit();
   }
+
+  scrollToOurServices(){
+    console.log("services emitted");
+    this.ourServicesClicked.emit();
+  }
+ 
+  
 
   openNav(){
     this.isopen=!this.isopen;
