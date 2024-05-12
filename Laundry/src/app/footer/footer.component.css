@@ -1,0 +1,17 @@
+.footer{
+    height:400px;
+    margin-top: 50px;
+}
+
+.content{
+    height:300px;
+}
+.copyright{
+    text-align: center;
+}
+.footer.copyright{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+

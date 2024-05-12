@@ -1,55 +1,81 @@
 .service-content{
     height:250px;
-    width:250px;
+    width:100%;
+    position: relative;
+
 }
+
+
 .heart{
-    width: 60px;
-    height: 60px;
-    position: relative;
-    margin: 50px auto;
-    background-color: aqua;
-    transform: rotate(-45deg);
+    width:50px;
+    height:50px;
+    background-color: rgb(151, 131, 131);
     border-radius: 50%;
-    overflow: hidden;
-    margin-left: 0;
-    margin-top: 0;
-    transition: all 0.3s ease;
-}
-.heart::before,
-.heart::after{
-    content:'';
-    width: 60px;
-    height: 60px;
-    background: aqua;
-    border-radius: 50%;
-    position:absolute;
+    position: absolute;
     top:0;
+    left:0;
 }
-.heart::before{
-    left: 20px;
-    
-}
-.heart::after{
-    left: 0;
-}
-
-.heart img{
-  width: 48px;
-  height: 48px;
-  z-index: 1;
-  position: relative;
-  top:20%;
-  left:20%;
-  transform: rotate(100 deg);
-}
-
-
-.heart p{
-    z-index: 1;
-    position: relative;
-    font-weight: bold;
+.head{
     text-align: center;
-    margin:0;
-    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+.head p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 10px;
+    font-size:28px;
+    color:#222222;
+    margin-bottom: 50px;
+}
+.head h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 10px;
+    font-size:23px;
+    color:#016FAE;
+}
+.animation{
+    transition: transform 0.8s;
+    margin-top:50px;
+}
+.animation:hover{
+    transform: translateX(10px);
+}
+.content{
+    position: relative;
+}
+.content h2{
+    font-size: 23px;
+    color:#222222;
+}
+.content p{
+    font-size: 15px;
+    color:#222222;
+}
+.content img{
+    margin-top:-80px;
+    z-index:1;
+}
+.background{
+    background-image: url('../../assets/images/background2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    height:700px;
+    opacity: 0.5;
+}
+.centered-div{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    max-width:80%;
+    height:500px;
+    width:50%;
+}
+@media (max-width:768px) {
+    .centered-div{
+        max-width: 90%;
+    }
 }
 

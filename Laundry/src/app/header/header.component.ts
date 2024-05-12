@@ -9,6 +9,7 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isopen:boolean=false;
 
   @Output() contactUsClicked:EventEmitter<void>=new EventEmitter<void>();
  
@@ -22,6 +23,17 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['./']);
     this.contactUsClicked.emit();
   }
+
+  openNav(){
+    this.isopen=!this.isopen;
+    console.log(this.isopen);
+  }
+  closeNav(){
+    this.isopen=false;
+    console.log(this.isopen);
+
+  }
+
   
 
 }

@@ -4,3 +4,10 @@
 .form-control{
     max-width:150px;
 }
+.input-group{
+    margin-left: 80%;
+    
+}
+.container{
+    overflow-x: hidden;
+}

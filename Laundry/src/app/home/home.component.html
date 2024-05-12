@@ -1,5 +1,10 @@
-<app-header (contactUsClicked)="scrollToContactUs()"></app-header>
-<app-pickup-drop></app-pickup-drop>
+<div classs="container">
+<section id="header">
+    <app-header (contactUsClicked)="scrollToContactUs()"></app-header>
+</section>
+<section id="pickup-drop">
+   <app-pickup-drop></app-pickup-drop>
+</section>
 <section id="our-services">
     <app-our-services></app-our-services>
 </section>
@@ -10,10 +15,21 @@
 <button class="btn btn-primary" id="contactBtn">
     <i class="fa-solid fa-arrow-right" (click)="hideContactBtn()"></i>
     <div class="icons">
-        <i class="fa-brands fa-whatsapp"></i><br>
-        <i class="fa-solid fa-phone"></i>
+        <div class="whatsapp">
+            <span class="text">Whatsapp</span>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="phone">
+            <span class="text">Call US</span>
+            <i class="fa-solid fa-phone"></i>
+        </div>
     </div>
 </button>
-<button  class="btn btn-primary" id="moveToTop" (click)="moveToTop()"> Top</button>
+<button  class="btn btn-primary" id="moveToTop" (click)="moveToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+<section id="footer">
+    <app-footer></app-footer>
+</section>
+</div>
+
 
 
