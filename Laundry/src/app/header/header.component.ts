@@ -1,4 +1,3 @@
-import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 
@@ -27,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
   scrollToOurServices(){
     console.log("services emitted");
+    this.router.navigate(['./']);
     this.ourServicesClicked.emit();
   }
  
