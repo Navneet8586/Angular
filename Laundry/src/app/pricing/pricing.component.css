@@ -8,6 +8,23 @@
     margin-left: 80%;
     
 }
+
+@media (max-width:768px) {
+    .input-group{
+        margin-left: 30%;
+    }
+}
 .container{
     overflow-x: hidden;
+}
+.pricing-head{
+    background-image: url('../../assets/images/pricing.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+.container-fluid{
+    position: relative;
+    margin:0 auto;
+
 }

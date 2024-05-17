@@ -12,6 +12,8 @@ export class OurServicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  call(){
+    window.location.href='tel:8005657266';
+  }
 
 }

@@ -13,5 +13,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  call(num:string){
+    window.location.href='tel:'+num;
+  }
 
 }

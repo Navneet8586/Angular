@@ -49,10 +49,10 @@
             <li class="mb-3">
               <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">{{contact.EMAIL}}</span>
             </li>
-            <li class="mb-3">
+            <li class="mb-3" (click)="call(contact.NUMBER)">
               <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">{{contact.NUMBER}}</span>
             </li>
-            <li class="mb-3">
+            <li class="mb-3" (click)="call(contact.ALTNUMBER)">
               <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">{{contact.ALTNUMBER}}</span>
             </li>
           </ul>

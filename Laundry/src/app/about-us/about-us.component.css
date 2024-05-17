@@ -8,5 +8,12 @@
     width: 100%;
 }
 .container-fluid{
-    height: 800px;
+    margin-top: 50px;
 }
+
+.image{
+    background-image: url('../../assets/images/back2.jpg');
+    background-position: left;
+    background-size: cover;
+}
+
