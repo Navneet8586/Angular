@@ -31,8 +31,16 @@
     z-index: 99;
     display: none;
 }
-.text{
+.text1,.text2{
     display: none;
+} 
+.icons .whatsapp:hover .text1{
+    display:inline-block; 
+    margin-right: 5px;
+}
+.icons .phone:hover .text2{
+    display:inline-block; 
+    margin-right: 5px;
 }
 
 .container{
