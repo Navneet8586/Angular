@@ -11,12 +11,17 @@ import { services } from '../model';
 export class AboutUsComponent implements OnInit {
   contactDetails=contact;
   services=services;
+
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
- 
+  lat: number = 51.673858;
+  lng: number = 7.815982;
+
+  
+  
 
 }

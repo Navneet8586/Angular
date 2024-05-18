@@ -1,15 +1,12 @@
 .pickup-drop-container{
-    background-image: url('../../assets/images/background1.jpg');
-    height: 500px;
+    background-image: url('../../assets/images/back4.jpg');
+    height: 700px;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    align-items: center;
-    justify-content: center;
 }
 .pickup-drop-head{
     font-size: 37px;
-    
+    text-align: center;
 }
 
 .btn.btn-primary{

@@ -37,7 +37,7 @@
     margin-top:50px;
 }
 .animation:hover{
-    transform: translateX(10px);
+    transform: translateX(20px);
 }
 .content{
     position: relative;
