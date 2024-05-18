@@ -25,7 +25,9 @@
 
 #contactBtn{
     position: fixed;
+    border: 2px solid rosybrown;
     top:50%;
+    padding:20px;
     right:0;
     transform:translateY(-50%);
     z-index: 99;
@@ -48,3 +50,4 @@
     flex-direction: column;
     align-items: center;
 }
+
