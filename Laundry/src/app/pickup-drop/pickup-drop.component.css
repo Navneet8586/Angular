@@ -7,6 +7,8 @@
 .pickup-drop-head{
     font-size: 37px;
     text-align: center;
+    padding-top: 20%;
+    line-height: 50px;
 }
 
 .btn.btn-primary{
@@ -123,4 +125,7 @@
 .list-group-item{
     font-size: 20px;
     word-spacing: 5px;
+}
+.pickup-btn{
+    margin-left:43%;
 }
