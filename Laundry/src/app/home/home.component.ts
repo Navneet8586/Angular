@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit {
     contactUs.scrollIntoView({behaviour:'smooth'})
   }
 
+  callUs(){
+    window.location.href='tel:8005657266';
+  }
+
   scrollToContactUs(){
     console.log("called");
 

@@ -5,6 +5,15 @@
     right: 20px;
     
 }
+
+#call{
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    border:2px solid green;
+    background-color: green;
+    border-radius: 50%;
+}
 #moveToTop.show,
 #sideBtn.show,
 #contactBtn.show{
