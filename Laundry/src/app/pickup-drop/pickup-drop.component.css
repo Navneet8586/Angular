@@ -127,5 +127,12 @@
     word-spacing: 5px;
 }
 .pickup-btn{
-    margin-left:43%;
+    margin-left: 43%;
+}
+
+@media (max-width:768px) {
+    .pickup-btn{
+        margin-left: 25%;
+    }
+    
 }

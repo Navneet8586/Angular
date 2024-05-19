@@ -10,7 +10,7 @@ export interface pricing{
 
 
 export enum contact{
-    NUMBER='9718062188',
+    NUMBER='8860562188',
     ALTNUMBER='9818762188',
     ADDRESS='shop no-ug-05,Near Barat Ghar Kuleshra,Greater Noida,GB Nagar,201306',
     EMAIL='Grenocleaners@gmail.com'

@@ -16,7 +16,6 @@
     background-image: url('../../assets/images/back.jpg');
     background-position: center;
     background-size: cover;
-    background-color: blue;
 }
 .heart{
     width:50px;
@@ -27,6 +26,7 @@
 }
 .contact-details{
     margin-top: 50px;
+    padding-bottom: 0px;
 }
 
 .content-phone,
@@ -49,10 +49,37 @@
 .content-phone{
     padding-top: 25px;
 }
+.outlet{
+    display: none;
+    font-size: 20px;
+}
+.mobile-image{
+    display: none;
+    background-image: url('../../assets/images/back.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.outlet-head h2{
+    font-size: 50px;
+    
+}
 
 @media (max-width:768px) {
     .map{
         display:none;
+    }
+    .about-us-footer{
+        margin-top: 700px;
+    }
+    .image{
+        display:none;
+    }
+    .mobile-image,.outlet{
+        display: block;
+    }
+    .outlet-head h2{
+        font-size: 30px;
+        
     }
 }
 

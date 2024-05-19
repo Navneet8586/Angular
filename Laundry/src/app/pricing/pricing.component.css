@@ -18,10 +18,10 @@
     overflow-x: hidden;
 }
 .pricing-head{
-    background-image: url('../../assets/images/pricing.jpg');
+    background-image: url('../../assets/images/discount.jpg');
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 300px;
 }
 .container-fluid{
     position: relative;
