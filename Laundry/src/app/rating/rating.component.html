@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 full-height">
+            <div id="demo" class="carousel slide h-100" data-bs-ride="carousel">
+
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                  <button *ngFor="let rating of ratings; let i = index" type="button" [attr.data-bs-target]="'#demo'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"></button>
+                </div>
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100" *ngFor="let rating of ratings; let i = index" [class.active]="i === 0">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <h5 class="card-title">{{rating.user_name|titlecase}}</h5>
+                                <p class="card-text">{{rating.message}}</p>
+                                <div class="stars">
+                                    <span *ngFor="let star of getStars(rating.rating)" class="star">&#9733;</span>
+                                </div>
+                                <button class="btn btn-success rate-us mt-3 ml-5 card-text">Rate Us</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev " type="button" data-bs-target="#demo" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon bg-success"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                  <span class="carousel-control-next-icon bg-success"></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label>Enter your Name</label>
+            <input type="text">
+            <label>Rating</label>    
+        </div>
+    </div>
+</div>
+
+

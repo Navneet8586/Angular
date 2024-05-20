@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { HomeComponent } from './home/home.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { FooterComponent } from './footer/footer.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { FooterComponent } from './footer/footer.component';
     PricingComponent,
     HomeComponent,
     OurServicesComponent,
-    FooterComponent
+    FooterComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
