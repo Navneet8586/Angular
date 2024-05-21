@@ -17,7 +17,7 @@
                                 <div class="stars">
                                     <span *ngFor="let star of getStars(rating.rating)" class="star">&#9733;</span>
                                 </div>
-                                <button class="btn btn-success rate-us mt-3 ml-5 card-text">Rate Us</button>
+                                <!-- <button class="btn btn-success rate-us mt-3 ml-5 card-text">Rate Us</button> -->
 
                             </div>
                         </div>
@@ -34,9 +34,31 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <label>Enter your Name</label>
-            <input type="text">
-            <label>Rating</label>    
+            <form [formGroup]="ratingForm" (ngSubmit)="submitRating()">
+                <div class="mb-3">
+                  <label for="userName" class="form-label">Enter your Name</label>
+                  <input type="text" id="userName" formControlName="userName" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="userRating" class="form-label">Rating</label>
+                  <span class="star-rating p-3" id="userRating">
+                    <i class="fa fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" 
+                       [class.filled]="i < ratingForm.controls['userRating'].value" 
+                       (click)="setRating(i + 1)">
+                    </i>
+                  </span>
+                </div>
+                
+                <div class="mb-2">
+                  <label for="userFeedback" class="form-label">Kindly provide your feedback</label>
+                  <textarea id="userFeedback" formControlName="userFeedback" class="form-control" rows="3" (input)="handleFeedbackInput($event)"></textarea>
+                  <small class="form-text text-muted" *ngIf="ratingForm.controls['userFeedback'].value!==null">{{ratingForm.controls['userFeedback'].value.length}} / {{maxFeedbackLength}} characters</small>
+                </div>
+                
+                <button type="submit" class="btn btn-success ">Rate Us</button>
+              </form>
+              
         </div>
     </div>
 </div>

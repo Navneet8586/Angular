@@ -8,6 +8,12 @@ export interface pricing{
     price:string
 }
 
+export interface ratingData{
+    userName:string;
+    userRating:number;
+    userFeedback:string;
+}
+
 
 export enum contact{
     NUMBER='8860562188',

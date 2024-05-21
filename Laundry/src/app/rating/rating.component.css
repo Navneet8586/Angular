@@ -22,11 +22,22 @@
   }
   
 .star{
-    font-size: 24px; /* Set star size */
+    font-size: 30px; /* Set star size */
 }
 .rate-us{
     width: 100px;
     height: 40px;
     margin-left: 43%;
+}
+.star-rating .fa-star {
+    cursor: pointer;
+    color: #d3d3d3;
+    font-size: 30px;
+    /* default color */
+}
+
+.star-rating .fa-star.filled {
+    color: #ffd700;
+    /* filled star color */
 }
   

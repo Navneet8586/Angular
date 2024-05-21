@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ratingData } from './model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LaundryService {
   private baseurl='http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/api/submit-rating';
 
   constructor(private http:HttpClient) { }
 
@@ -20,5 +22,8 @@ export class LaundryService {
     return this.http.get<any[]>(`${this.baseurl}/ratings`);
   }
 
+  submitRating(data: { userName: string, userRating: number, userFeedback: string }): Observable<any> {
+    return this.http.post<any>(this.apiUrl, data);
+  }
 
 }

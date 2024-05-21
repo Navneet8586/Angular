@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LaundryService } from '../laundry.service';
+import { ratingData } from '../model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-rating',
@@ -7,6 +9,8 @@ import { LaundryService } from '../laundry.service';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
+  ratingForm!:FormGroup;
+  maxFeedbackLength: number = 200;
   ratings:any[]=[];
 
   userRating: number = 0;
@@ -14,10 +18,12 @@ export class RatingComponent implements OnInit {
   stars: number[] = [];
 
 
-  constructor( private service:LaundryService) { 
-    for (let i = 0; i < this.maxRating; i++) {
-      this.stars.push(i + 1);
-    }
+  constructor( private service:LaundryService,private fb:FormBuilder) { 
+    this.ratingForm=this.fb.group({
+      userName:['',Validators.required],
+      userRating:[0,Validators.required],
+      userFeedback:['',Validators.required]
+    })
   }
 
   ngOnInit(): void {
@@ -40,8 +46,34 @@ export class RatingComponent implements OnInit {
     return Array.from({ length: Math.floor(roundedRating) }, (_, i) => i + 1);
   }
 
-  
+  setRating(rating: number): void {
+    this.ratingForm.controls['userRating'].setValue(rating);
+  }
 
+  submitRating(): void {
+    if (this.ratingForm.valid) {
+      console.log('Form submitted:', this.ratingForm.value);
+      this.service.submitRating(this.ratingForm.value).subscribe(
+        response => {
+          console.log('Data submitted successfully', response);
+          this.fetchRatings();
+        },
+        error => {
+          console.error('Error submitting data', error);
+        }
+      );
+      this.ratingForm.reset();
+      // Handle form submission, e.g., send to server
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 
-
+  handleFeedbackInput(event: Event): void {
+    const input = event.target as HTMLTextAreaElement;
+    if (input!==null && input.value.length > this.maxFeedbackLength) {
+      input.value = input.value.slice(0, this.maxFeedbackLength);
+      this.ratingForm.controls['userFeedback'].setValue(input.value);
+    }
+  }
 }
