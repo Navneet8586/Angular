@@ -24,11 +24,7 @@
 .star{
     font-size: 30px; /* Set star size */
 }
-.rate-us{
-    width: 100px;
-    height: 40px;
-    margin-left: 43%;
-}
+
 .star-rating .fa-star {
     cursor: pointer;
     color: #d3d3d3;
@@ -39,5 +35,21 @@
 .star-rating .fa-star.filled {
     color: #ffd700;
     /* filled star color */
+}
+
+@media (max-width:768px) {
+    .container-fluid{
+        margin-bottom: 350px;
+    }
+    .rate-us{
+        width: 100px;
+        height: 40px;
+        margin-left: 40%;
+        color: bg-success;
+        border: 2px solid green;
+        border-radius: 20%;
+        background-color: green;
+    }
+    
 }
   

@@ -9,6 +9,11 @@
 .container-fluid{
     height: 100px;
 }
+.nav-item .nav-link.active {
+    color: white; /* or any other style you want */
+    /* optional: background color for active link */
+    font-weight: bold; /* optional: make text bold */
+  }
 
 .navbar{
     margin: 0;

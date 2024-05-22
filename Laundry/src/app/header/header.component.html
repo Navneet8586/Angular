@@ -1,20 +1,27 @@
 <nav class="navbar navbar-expand-sm navbar-dark d-lg-block d-md-none fixed-top">
   <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
        data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="javascript:void(0)"><img src="../../assets/images/Greno Cleaners_transparent.png" style="height:50px"></a>
-      <div class="collapse navbar-collapse" id="n_bar" >
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item active"><a class="nav-link" [routerLink]="['']" data-bs-toggle="collapse">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="javascript:void(0);" (click)="scrollToOurServices()" data-bs-toggle="collapse">Our Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="javascript:void(0);" (click)="scrollToContactUs()" id="contact" data-bs-toggle="collapse">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link" [routerLink]="['/pricing']" data-bs-toggle="collapse">Pricing</a></li>
-          </ul>
-      </div>
-      <!-- <div class="ml-auto">
-          <img src="../../assets/images/Greno Cleaners_transparent.png" alt="Logo" class="navbar-logo">
-      </div> -->
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="javascript:void(0)">
+      <img src="../../assets/images/Greno Cleaners_transparent.png" style="height:50px">
+    </a>
+    <div class="collapse navbar-collapse" id="n_bar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"  >
+          <a class="nav-link" [routerLink]="['']" data-bs-toggle="collapse" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" (click)="scrollToOurServices()" data-bs-toggle="collapse" routerLinkActive="active">Our Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" href="javascript:void(0);" (click)="scrollToContactUs()" id="contact" data-bs-toggle="collapse">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pricing']" data-bs-toggle="collapse" routerLinkActive="active">Pricing</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
