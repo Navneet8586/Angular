@@ -9,6 +9,8 @@
     text-align: center;
     padding-top: 20%;
     line-height: 50px;
+    font-weight: bold;
+    color: #595d63;
 }
 
 .btn.btn-primary{
@@ -68,6 +70,9 @@
     }
     .mobile-view{
         margin-top: 60px;
+    }
+    .pickup-drop-head{
+        padding-top: 70%;
     }
     .galleryx{
         height: 200px;
@@ -132,7 +137,14 @@
 
 @media (max-width:768px) {
     .pickup-btn{
-        margin-left: 25%;
+        margin-left: 27%;
     }
     
 }
+
+/* styles.css or styles.scss */
+
+
+  
+
+
