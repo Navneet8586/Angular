@@ -33,7 +33,7 @@ export class RatingComponent implements OnInit {
   fetchRatings(){
     this.service.getRatings().subscribe((data:any[])=>{
       this.ratings=data;
-      console.log(this.ratings[0]);
+      
     },(error)=>{
       console.log(error);
     })

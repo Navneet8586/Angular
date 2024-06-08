@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit ,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { contact } from '../model';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,11 @@ export class HomeComponent implements OnInit {
 
   callUs(){
     window.location.href='tel:8005657266';
+  }
+
+  whatsapp(){
+    const whatsappUrl=`https://wa.me/${contact.NUMBER}`;
+    window.open(whatsappUrl,'_blank');
   }
 
   scrollToContactUs(){

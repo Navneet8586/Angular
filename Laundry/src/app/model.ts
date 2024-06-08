@@ -16,10 +16,10 @@ export interface ratingData{
 
 
 export enum contact{
-    NUMBER='8860562188',
+    NUMBER='7633020190',
     ALTNUMBER='9818762188',
     ADDRESS='shop no-ug-05,Near Barat Ghar Kuleshra,Greater Noida,GB Nagar,201306',
-    EMAIL='Grenocleaners@gmail.com'
+    EMAIL='support@greenocleaner.in'
 }
 export const services=['Laundry','Dry Cleaning','Steam Ironing','Sofa Cleaning','Carpet Cleaning','Shoe Spa','Polishing'];
 

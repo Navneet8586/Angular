@@ -9,6 +9,7 @@ import { ratingData } from './model';
 export class LaundryService {
   private baseurl='http://localhost:3000';
   private apiUrl = 'http://localhost:3000/api/submit-rating';
+  private mailUrl='http://localhost:3000/api/send-email';
 
   constructor(private http:HttpClient) { }
 
@@ -24,6 +25,13 @@ export class LaundryService {
 
   submitRating(data: { userName: string, userRating: number, userFeedback: string }): Observable<any> {
     return this.http.post<any>(this.apiUrl, data);
+  }
+
+  sendEmail(formData:any):Observable<any>{
+    
+    const data={to:'jhanavneet8586@gmail.com',subject:'order details for laundry service',text:formData.phone};
+    console.log(data);
+    return this.http.post<any>(this.mailUrl,data);
   }
 
 }
