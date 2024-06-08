@@ -6,8 +6,8 @@
     cursor: pointer;
     color: white;
 }
-.container-fluid{
-    height: 100px;
+.container{
+    background-color: cadetblue;
 }
 .nav-item .nav-link.active {
     color: white; /* or any other style you want */
@@ -18,12 +18,25 @@
 .navbar{
     margin: 0;
     padding: 0;
-}
-.navbar-brand{
-    display: none;
-}
+    background-color: cadetblue;
+    height: 100px;
 
-@media (max-width:768px) {
+}
+/* .navbar-brand{
+    display: none;
+} */
+@media (min-width: 992px) {
+    .navbar-nav {
+      margin-left: 0;
+    }
+    .navbar-brand-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+/* @media (max-width:572px) {
     .navbar-brand{
         display: block;
     }
@@ -31,5 +44,5 @@
         background-color:cadetblue;
     }
    
-}
+} */
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark d-lg-block d-md-none fixed-top">
+<!-- <nav class="navbar navbar-expand-sm navbar-dark d-lg-block d-md-none fixed-top">
   <div class="container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
        data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
@@ -10,6 +10,42 @@
     <div class="collapse navbar-collapse" id="n_bar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"  >
+          <a class="nav-link" [routerLink]="['']" data-bs-toggle="collapse" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" (click)="scrollToOurServices()" data-bs-toggle="collapse" routerLinkActive="active">Our Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" href="javascript:void(0);" (click)="scrollToContactUs()" id="contact" data-bs-toggle="collapse">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pricing']" data-bs-toggle="collapse" routerLinkActive="active">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+
+    <!-- Toggler button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Brand logo -->
+    <a class="navbar-brand" href="javascript:void(0)">
+      <img src="../assets/images/Greno Cleaners_transparent.png" style="height:50px" alt="Brand Logo">
+    </a>
+    
+    
+    
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['']" data-bs-toggle="collapse" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
         <li class="nav-item">

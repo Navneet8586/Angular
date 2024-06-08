@@ -5,6 +5,9 @@
     right: 20px;
     
 }
+#header{
+    margin-bottom: 50px;
+}
 
 #call{
     position: fixed;
@@ -43,6 +46,7 @@
     right:0;
     transform:translateY(-50%);
     z-index: 99;
+    
 }
 
 #contactBtn{
