@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 
 
@@ -14,24 +14,55 @@ export class HeaderComponent implements OnInit {
   @Output() ourServicesClicked:EventEmitter<void>=new EventEmitter<void>();
  
 
-  constructor( private route:ActivatedRoute,private router:Router) { }
+  constructor( private router:Router,private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
 
   }
-  scrollToContactUs(){
-    this.router.navigate(['./']);
-    this.contactUsClicked.emit();
+
+  private collapseNavbar() {
+    const navbar = this.el.nativeElement.querySelector('.navbar-collapse');
+    if (navbar && navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
   }
 
-  scrollToOurServices(){
-    console.log("services emitted");
-    this.router.navigate(['./']);
+  private setActiveLink(target: EventTarget | null) {
+    // Remove 'active' class from all nav links
+    const links = this.el.nativeElement.querySelectorAll('.nav-link');
+    links.forEach((link: HTMLElement) => {
+      this.renderer.removeClass(link, 'active');
+    });
+
+    // Add 'active' class to the clicked link
+    this.renderer.addClass(target as HTMLElement, 'active');
+  }
+  
+  scrollToOurServices(event: Event) {
+    this.collapseNavbar()
     this.ourServicesClicked.emit();
+    this.router.navigate(['./']);
+    event.preventDefault();
+    this.setActiveLink(event.target);
+  }
+
+  scrollToContactUs(event: Event) {
+    this.router.navigate(['./']);
+    this.collapseNavbar();
+    this.contactUsClicked.emit();
+    event.preventDefault();
+    this.setActiveLink(event.target);
+  }
+
+  moveToTop(event:Event){
+    this.collapseNavbar();
+    window.scroll({top:0,left:0,behavior:'smooth'});
+    this.setActiveLink(event.target);
+  }
+  pricing(){
+    window.scroll({top:0,left:0,behavior:'smooth'});
   }
  
-  
-
   openNav(){
     this.isopen=!this.isopen;
     console.log(this.isopen);
@@ -41,7 +72,4 @@ export class HeaderComponent implements OnInit {
     console.log(this.isopen);
 
   }
-
-  
-
 }
