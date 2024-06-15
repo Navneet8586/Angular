@@ -23,10 +23,10 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
     this.contactForm=this.fb.group({
       name:['',Validators.required],
-      email:['',Validators.required],
-      phone:['',Validators.required],
+      email:['',[Validators.required,Validators.email]],
+      phone:['',[Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
       selectedService:['',Validators.required],
-      message:['',Validators.required]
+      message:['',[Validators.required,Validators.minLength(30)]]
     })
   }
 

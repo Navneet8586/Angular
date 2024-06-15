@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone:</label>
-                <input type="email" class="form-control" id="phone"  name="phone" formControlName="phone">
+                <input type="email" class="form-control" id="phone"  name="phone" formControlName="phone" maxlength="10" minlength="10">
             </div>
             <div class="mb-3">
                 <label for="services" class="form-label">Services:</label>
@@ -44,7 +44,7 @@
                 <label for="services" class="form-label">Message:</label>
                 <textarea type="text" class="form-control" rows="10" formControlName="message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
           </form>
       </div>
     </div>

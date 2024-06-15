@@ -24,7 +24,7 @@ export class PickupDropComponent implements OnInit {
   ngOnInit(): void {
     this.pickupDrop=this.formBuilder.group({
       name:['',Validators.required],
-      phone:['',Validators.required],
+      phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       selectedService:['',Validators.required],
       selectedDate:['',Validators.required],
       selectedTimeSlot:['',Validators.required]
