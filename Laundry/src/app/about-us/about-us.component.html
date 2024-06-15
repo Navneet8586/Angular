@@ -18,23 +18,23 @@
       </div>
       <div class="col-sm-6  p-3">
         <h2 class="about-us">Contact Us</h2>
-        <form>
+        <form [formGroup]="contactForm" (ngSubmit)="submit()">
             <div class="mb-3 mt-3">
               <label for="name" class="form-label">Name:</label>
-              <input type="text" class="form-control" id="name" name="email">
+              <input type="text" class="form-control" id="name" name="email" formControlName="name">
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email:</label>
-              <input type="email" class="form-control" id="email"  name="email">
+              <input type="email" class="form-control" id="email"  name="email" formControlName="email">
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone:</label>
-                <input type="email" class="form-control" id="phone"  name="phone">
+                <input type="email" class="form-control" id="phone"  name="phone" formControlName="phone">
             </div>
             <div class="mb-3">
                 <label for="services" class="form-label">Services:</label>
                 <div class="dropdown">
-                    <select id="selectedService" class="form-control col-12">
+                    <select id="selectedService" class="form-control col-12" formControlName="selectedService">
                         <option value="" disabled selected>Choose Services</option>
                         <option *ngFor="let service of services" [value]="service">{{service}}</option>
                     </select><br><br>
@@ -42,7 +42,7 @@
             </div>
             <div class="mb-3">
                 <label for="services" class="form-label">Message:</label>
-                <textarea type="text" class="form-control" rows="10"></textarea>
+                <textarea type="text" class="form-control" rows="10" formControlName="message"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
