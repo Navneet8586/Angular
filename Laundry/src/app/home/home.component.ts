@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   callUs(){
-    window.location.href='tel:8005657266';
+    window.location.href='tel:8860562188';
   }
 
   whatsapp(){

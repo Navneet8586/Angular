@@ -16,7 +16,7 @@ export interface ratingData{
 
 
 export enum contact{
-    NUMBER='7633020190',
+    NUMBER='8860562188',
     ALTNUMBER='9818762188',
     ADDRESS='shop no-ug-05,Near Barat Ghar Kuleshra,Greater Noida,GB Nagar,201306',
     EMAIL='support@greenocleaner.in'
