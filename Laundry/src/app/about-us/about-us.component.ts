@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { contact } from '../model';
 import { services } from '../model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LaundryService } from '../laundry.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AboutUsComponent implements OnInit {
   lng: number = 7.815982;
 
   
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private service:LaundryService) { }
 
   ngOnInit(): void {
     this.contactForm=this.fb.group({
@@ -31,6 +32,15 @@ export class AboutUsComponent implements OnInit {
 
   submit(){
     console.log(this.contactForm.value);
+    this.service.contactUsMail(this.contactForm.value).subscribe(
+      response => {
+        console.log('Data submitted successfully', response);
+      },
+      error => {
+        console.error('Error submitting data', error);
+      }
+    );
+    this.contactForm.reset();
   }
 
   
