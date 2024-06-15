@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ratingData } from './model';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class LaundryService {
   private apiUrl = 'http://localhost:3000/api/submit-rating';
   private mailUrl='http://localhost:3000/api/send-email';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private datepipe:DatePipe) { }
 
   sendFormDataViaWhatsapp(formData:any){
     const message=`Name: ${formData.name}%0AEmail:${formData.email}`;
@@ -27,11 +28,37 @@ export class LaundryService {
     return this.http.post<any>(this.apiUrl, data);
   }
 
-  sendEmail(formData:any):Observable<any>{
-    
-    const data={to:'jhanavneet8586@gmail.com',subject:'order details for laundry service',text:formData.phone};
-    console.log(data);
-    return this.http.post<any>(this.mailUrl,data);
+  sendEmail(formData: any): Observable<any> {
+    const date=this.datepipe.transform(formData.selectedDate,'yyyy-MM-dd');
+
+    const data = {
+      to: 'jhanavneet8586@gmail.com', subject: 'order details for laundry service',
+
+      text: `    
+      <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+      <h2 style="color: #333;">Congratulations, You Have Got a New Order</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Name</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Mobile No</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Services</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Date</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Time Slots</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.name}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.phone}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.selectedService}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.selectedTimeSlot}</td>
+        </tr>
+      </table>
+      <h3 style="color: #333;">Thanks & Regards</h3>
+      <p style="color: #555;">Greno Team🙂</p>
+    </div>
+         `
+    };
+    return this.http.post<any>(this.mailUrl, data);
   }
 
 }
