@@ -16,5 +16,12 @@ export class FooterComponent implements OnInit {
   call(num:string){
     window.location.href='tel:'+num;
   }
+  mailUs(mail:string){
+    window.location.href = 'mailto:' + mail;
+  }
+  openWhatsApp() {
+    const whatsappUrl=`https://wa.me/+91${contact.NUMBER}`;
+    window.open(whatsappUrl,'_blank');
+  }
 
 }

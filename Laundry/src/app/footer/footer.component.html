@@ -8,22 +8,16 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">About company</h5>
-  
+
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti.
-          </p>
-  
-          <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
+            Discover the ultimate in laundry care with Greno Cleaners. Our top-notch laundry services combine convenience and quality, ensuring your clothes are impeccably cleaned and perfectly pressed. At Greno Cleaners, we use eco-friendly products and advanced cleaning techniques to give your garments the gentle yet thorough treatment they deserve. Trust us to keep your wardrobe fresh, vibrant, and ready for any occasion. Experience the Greno difference – where your laundry is our priority.
           </p>
   
           <div class="mt-4">
             <!-- Facebook -->
             <a type="button" class="btn btn-floating btn-success btn-lg"><i class="fab fa-facebook-f"></i></a>
             <!-- Dribbble -->
-            <a type="button" class="btn btn-floating btn-success btn-lg"><i class="fab fa-whatsapp"></i></a>
+            <a type="button" class="btn btn-floating btn-success btn-lg" (click)="openWhatsApp()"><i class="fab fa-whatsapp"></i></a>
             <!-- Twitter -->
             <a type="button" class="btn btn-floating btn-success btn-lg"><i class="fab fa-twitter"></i></a>
             <!-- Google + -->
@@ -46,13 +40,13 @@
             <li class="mb-3">
               <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">{{contact.ADDRESS}}</span>
             </li>
-            <li class="mb-3">
+            <li class="mb-3 clickable" (click)="mailUs(contact.EMAIL)">
               <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">{{contact.EMAIL}}</span>
             </li>
-            <li class="mb-3" (click)="call(contact.NUMBER)">
+            <li class="mb-3 clickable" (click)="call(contact.NUMBER)">
               <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">{{contact.NUMBER}}</span>
             </li>
-            <li class="mb-3" (click)="call(contact.ALTNUMBER)">
+            <li class="mb-3 clickable" (click)="call(contact.ALTNUMBER)">
               <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">{{contact.ALTNUMBER}}</span>
             </li>
           </ul>

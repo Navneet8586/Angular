@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
+import { contact } from '../model';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isopen:boolean=false;
+  contact=contact;
 
   @Output() contactUsClicked:EventEmitter<void>=new EventEmitter<void>();
   @Output() ourServicesClicked:EventEmitter<void>=new EventEmitter<void>();
@@ -71,5 +73,9 @@ export class HeaderComponent implements OnInit {
     this.isopen=false;
     console.log(this.isopen);
 
+  }
+
+  callUs(){
+    window.location.href='tel:8860562188';
   }
 }

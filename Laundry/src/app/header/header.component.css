@@ -25,6 +25,10 @@
 /* .navbar-brand{
     display: none;
 } */
+
+.contact-header{
+     display: none;  
+}
 @media (min-width: 992px) {
     .navbar-nav {
       margin-left: 0;
@@ -33,6 +37,9 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+    }
+    .contact-header{
+      display: block;
     }
   }
 
@@ -45,4 +52,17 @@
     }
    
 } */
+
+@media (max-width: 992px) {
+    .contact-header {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+.contact-header :hover{
+    cursor:pointer;
+    color: white;
+}
 

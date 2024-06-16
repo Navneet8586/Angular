@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   whatsapp(){
-    const whatsappUrl=`https://wa.me/${contact.NUMBER}`;
+    const whatsappUrl=`https://wa.me/+91${contact.NUMBER}`;
     window.open(whatsappUrl,'_blank');
   }
 
