@@ -29,7 +29,7 @@ export class LaundryService {
     const date=this.datepipe.transform(formData.selectedDate,'yyyy-MM-dd');
 
     const data = {
-      to: 'jhanavneet8586@gmail.com', subject: 'order details for laundry service',
+      to: 'grenocleaners@gmail.com', subject: 'order details for laundry service',
 
       text: `    
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -61,7 +61,7 @@ export class LaundryService {
   contactUsMail(formData: any): Observable<any> {
 
     const data = {
-      to: 'jhanavneet8586@gmail.com', subject: 'Feedback for offered service',
+      to: 'grenocleaners@gmail.com', subject: 'Feedback for offered service',
 
       text: `    
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
