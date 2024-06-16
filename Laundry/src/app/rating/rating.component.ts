@@ -16,6 +16,8 @@ export class RatingComponent implements OnInit {
   userRating: number = 0;
   maxRating: number = 5;
   stars: number[] = [];
+  overAllRating:number=0;
+  totalNumberOfRating:number=0
 
 
   constructor( private service:LaundryService,private fb:FormBuilder) { 
@@ -31,11 +33,14 @@ export class RatingComponent implements OnInit {
   }
 
   fetchRatings(){
-    this.service.getRatings().subscribe((data:any[])=>{
-      this.ratings=data;
-      
-    },(error)=>{
-      console.log(error);
+    this.service.getRatings().subscribe({
+      next:([lastTenRating,overAllRating])=>{
+        this.ratings=lastTenRating;
+        this.getOverAllRating(overAllRating)
+      },
+      error:(error)=>{
+        console.error("Error in fetching data");
+      }
     })
   }
 
@@ -67,6 +72,18 @@ export class RatingComponent implements OnInit {
     } else {
       console.log('Form is invalid');
     }
+  }
+
+  getOverAllRating(allRatings:any){
+    let length=allRatings?.length;
+    this.totalNumberOfRating=length;
+    let sum=0;
+    allRatings.forEach((element: any) => {
+      console.log(element);
+      sum+=Number(element.rating);
+    });
+    this.overAllRating=sum/length;
+    console.log(this.overAllRating)
   }
 
   handleFeedbackInput(event: Event): void {

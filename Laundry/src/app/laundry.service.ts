@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,forkJoin } from 'rxjs';
 import { ratingData } from './model';
 import { DatePipe } from '@angular/common';
 
@@ -9,6 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class LaundryService {
   private baseurl='http://localhost:3000';
+  private overAllRatingUrl = 'http://localhost:3000/api/overall-rating';
   private apiUrl = 'http://localhost:3000/api/submit-rating';
   private mailUrl='http://localhost:3000/api/send-email';
   private contactUsUrl='http://localhost:3000/api/contact-us';
@@ -22,8 +23,15 @@ export class LaundryService {
   }
 
   getRatings():Observable<any[]>{
-    return this.http.get<any[]>(`${this.baseurl}/ratings`);
+    const lastTenRating= this.http.get<any[]>(`${this.baseurl}/ratings`);
+    const overAllRating= this.http.get<any[]>(`${this.baseurl}/overall-ratings`);
+    
+    return forkJoin([lastTenRating,overAllRating]);
+
   }
+  // getOverAllRatings():Observable<any[]>{
+  //   return this.http.get<any[]>(`${this.baseurl}/overall-ratings`);
+  // }
 
   submitRating(data: { userName: string, userRating: number, userFeedback: string }): Observable<any> {
     return this.http.post<any>(this.apiUrl, data);
