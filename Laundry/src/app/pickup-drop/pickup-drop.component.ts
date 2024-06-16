@@ -50,10 +50,6 @@ export class PickupDropComponent implements OnInit {
       let idx=this.timeSlotFilter.find(obj=>obj.value===p.getHours());
       if(idx===undefined){
         this.timeSlots.splice(0,this.timeSlots.length);
-        const timeSlotElement=document.getElementById('timeSlot');
-        if(timeSlotElement){
-          timeSlotElement.innerText="No Available Time slot for selected date";
-        }
        } else{
         this.timeSlots.splice(0,idx.idx);
       }
