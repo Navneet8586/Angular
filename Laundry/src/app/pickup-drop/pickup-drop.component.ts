@@ -76,8 +76,6 @@ export class PickupDropComponent implements OnInit {
         console.error('Error submitting data', error);
       }
     );
-    // this.laundryService.sendEmail(this.pickupDrop.value);
-    // this.laundryService.sendFormDataViaWhatsapp(this.pickupDrop.value);
     this.pickupDrop.reset();
   }
 

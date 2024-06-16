@@ -3,24 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import { Observable,forkJoin } from 'rxjs';
 import { ratingData } from './model';
 import { DatePipe } from '@angular/common';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LaundryService {
-  private baseurl='http://localhost:3000';
-  private overAllRatingUrl = 'http://localhost:3000/api/overall-rating';
-  private apiUrl = 'http://localhost:3000/api/submit-rating';
-  private mailUrl='http://localhost:3000/api/send-email';
-  private contactUsUrl='http://localhost:3000/api/contact-us';
+  private baseurl=environment.apiEndPoint;
 
   constructor(private http:HttpClient,private datepipe:DatePipe) { }
-
-  sendFormDataViaWhatsapp(formData:any){
-    const message=`Name: ${formData.name}%0AEmail:${formData.email}`;
-    const url=`https://api.whatsapp.com/send?phone=8005657266&text=${message}`;
-    window.open(url,'_blank');
-  }
 
   getRatings():Observable<any[]>{
     const lastTenRating= this.http.get<any[]>(`${this.baseurl}/ratings`);
@@ -29,12 +20,9 @@ export class LaundryService {
     return forkJoin([lastTenRating,overAllRating]);
 
   }
-  // getOverAllRatings():Observable<any[]>{
-  //   return this.http.get<any[]>(`${this.baseurl}/overall-ratings`);
-  // }
 
   submitRating(data: { userName: string, userRating: number, userFeedback: string }): Observable<any> {
-    return this.http.post<any>(this.apiUrl, data);
+    return this.http.post<any>(`${this.baseurl}/submit-rating`, data);
   }
 
   sendEmail(formData: any): Observable<any> {
@@ -67,7 +55,7 @@ export class LaundryService {
     </div>
          `
     };
-    return this.http.post<any>(this.mailUrl, data);
+    return this.http.post<any>(`${this.baseurl}/send-email`, data);
   }
 
   contactUsMail(formData: any): Observable<any> {
@@ -99,7 +87,7 @@ export class LaundryService {
     </div>
          `
     };
-    return this.http.post<any>(this.contactUsUrl, data);
+    return this.http.post<any>(`${this.baseurl}/contact-us`, data);
   }
 
 }
