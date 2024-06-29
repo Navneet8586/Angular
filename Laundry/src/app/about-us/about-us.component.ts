@@ -35,6 +35,7 @@ export class AboutUsComponent implements OnInit {
     this.service.contactUsMail(this.contactForm.value).subscribe(
       response => {
         console.log('Data submitted successfully', response);
+        alert('Thank You For Your Valuable FeedBack.');
       },
       error => {
         console.error('Error submitting data', error);

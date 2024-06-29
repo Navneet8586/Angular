@@ -71,6 +71,7 @@ export class PickupDropComponent implements OnInit {
     this.laundryService.sendEmail(this.pickupDrop.value).subscribe(
       response => {
         console.log('Data submitted successfully', response);
+        alert("Thank you for placing order.We Have Received Your Request!");
       },
       error => {
         console.error('Error submitting data', error);
