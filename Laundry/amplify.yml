@@ -30,7 +30,7 @@ applications:
             - npm install --legacy-peer-deps
         build:
           commands:
-            - ng build --prod
+            - ng build --configuration production
       artifacts:
         baseDirectory: dist/laundry
         files:
