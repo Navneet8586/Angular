@@ -60,7 +60,7 @@
                   <small class="form-text text-muted" *ngIf="ratingForm.controls['userFeedback'].value!==null">{{ratingForm.controls['userFeedback'].value.length}} / {{maxFeedbackLength}} characters</small>
                 </div>
                 
-                <button type="submit" class="btn btn-success " class="rate-us text-white">Rate Us</button>
+                <button type="submit" class="btn btn-success " class="rate-us text-white" [disabled]="!ratingForm.valid || ratingForm.controls['userRating'].value === 0">Rate Us</button>
               </form>
               
         </div>
