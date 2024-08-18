@@ -131,12 +131,18 @@
     font-size: 20px;
     word-spacing: 5px;
 }
+#rate-list{
+    margin-left: 43%;
+}
 .pickup-btn{
     margin-left: 43%;
 }
 
 @media (max-width:768px) {
     .pickup-btn{
+        margin-left: 27%;
+    }
+    #rate-list{
         margin-left: 27%;
     }
     
