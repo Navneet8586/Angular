@@ -1,0 +1,12 @@
+[build]
+  # Change directory to the "laundry" folder before running any commands
+  base = "laundry"
+  # Run `npm i --force` followed by the Angular build command
+  command = "npm i --force && npm run build"
+  # Adjust the publish directory to where Angular outputs the build, typically "dist/<project-name>"
+  publish = "dist/laundry"
+
+[dev]
+  # Set up environment for local development if needed
+  command = "npm run start"
+  port = 4200
