@@ -28,7 +28,9 @@ export class PickupDropComponent implements OnInit {
       phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       selectedService:['',Validators.required],
       selectedDate:['',Validators.required],
-      selectedTimeSlot:['',Validators.required]
+      selectedTimeSlot:['',Validators.required],
+      locationLink:[''],
+      address:['',Validators.required]
     })
   }
   callNow(){
@@ -67,18 +69,25 @@ export class PickupDropComponent implements OnInit {
     
   }
 
-  onSubmit(){
-    console.log(this.pickupDrop.value);
-    this.laundryService.sendEmail(this.pickupDrop.value).subscribe(
-      response => {
-        console.log('Data submitted successfully', response);
-        alert("Thank you for placing order.We Have Received Your Request!");
-      },
-      error => {
-        console.error('Error submitting data', error);
-      }
-    );
-    this.pickupDrop.reset();
+  async onSubmit(): Promise<void> {
+    try {
+      await this.getLocation(); // Wait for location retrieval
+  
+      console.log(this.pickupDrop.value);
+      this.laundryService.sendEmail(this.pickupDrop.value).subscribe(
+        response => {
+          console.log('Data submitted successfully', response);
+          alert("Thank you for placing your order. We have received your request!");
+        },
+        error => {
+          console.error('Error submitting data', error);
+        }
+      );
+    } catch (error) {
+      console.error('Error during submission', error);
+    } finally {
+      this.pickupDrop.reset();
+    }
   }
 
   pricing(){
@@ -86,4 +95,39 @@ export class PickupDropComponent implements OnInit {
 
   }
 
+  setLocationLink(position: GeolocationPosition) {
+    const latitude=position.coords.latitude;
+    const longitude=position.coords.longitude;
+    const gooleMapLinks=`https://www.google.com/maps?q=${latitude},${longitude}`;
+    console.log(gooleMapLinks);
+    this.pickupDrop.patchValue({locationLink:gooleMapLinks});
+  }
+
+  getLocation(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.setLocationLink(position);
+            resolve();
+          },
+          (error) => {
+            console.error('Error getting location', error);
+            alert('Unable to retrieve location');
+            reject(error);
+          }
+        );
+      } else {
+        alert('Geolocation is not supported by this browser');
+        reject(new Error('Geolocation not supported'));
+      }
+    });
+  }
+
+  
+ 
+
 }
+
+
+

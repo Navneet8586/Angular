@@ -147,6 +147,10 @@
     }
     
 }
+#address{
+    height: 40px;
+    width:60%;
+}
 
 /* styles.css or styles.scss */
 .glitter-text {
