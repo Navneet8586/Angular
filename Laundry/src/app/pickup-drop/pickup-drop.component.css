@@ -75,8 +75,8 @@
         padding-top: 70%;
     }
     .galleryx{
-        height: 200px;
-        width:60%;
+        height: 300px;
+        width:100%;
         background-image: url('../../assets/images/gallery1.jpg');
         background-position: right;
         background-size: cover;
