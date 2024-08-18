@@ -41,6 +41,8 @@ export class LaundryService {
           <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Services</th>
           <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Date</th>
           <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Time Slots</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Address</th>
+          <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Google Map Link</th>
         </tr>
         <tr>
           <td style="border: 1px solid #ddd; padding: 8px;">${formData.name}</td>
@@ -48,6 +50,9 @@ export class LaundryService {
           <td style="border: 1px solid #ddd; padding: 8px;">${formData.selectedService}</td>
           <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
           <td style="border: 1px solid #ddd; padding: 8px;">${formData.selectedTimeSlot}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.address}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${formData.locationLink}</td>
+          
         </tr>
       </table>
       <h3 style="color: #333;">Thanks & Regards</h3>

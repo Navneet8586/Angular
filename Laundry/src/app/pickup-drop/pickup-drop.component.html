@@ -33,6 +33,10 @@
                <option value="" disabled selected>Choose Services</option>
                <option *ngFor="let service of services" [value]="service">{{service}}</option>
             </select><br><br>
+            <input formControlName="locationLink" type="hidden" id="locationLink">
+            <label>Address:</label>
+            <input type="text" formControlName="address" id="address"><br><br>
+
             <div >
                 <mat-form-field>
                     <mat-label *ngIf="!pickupDrop.get('selectedDate')?.value">Select a date:</mat-label>
@@ -40,7 +44,7 @@
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-            </div><br><br>
+            </div><br>
             <label>Time Slot:</label>
             <select id="selectedTimeSlot" formControlName="selectedTimeSlot">
                 <option value="" disabled selected>Choose Time slot</option>
