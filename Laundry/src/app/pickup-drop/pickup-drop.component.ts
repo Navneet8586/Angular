@@ -71,7 +71,7 @@ export class PickupDropComponent implements OnInit {
 
   async onSubmit(): Promise<void> {
     try {
-      await this.getLocation(); // Wait for location retrieval
+      await this.getLocation(); // Wait for location retrieval or fallback
   
       console.log(this.pickupDrop.value);
       this.laundryService.sendEmail(this.pickupDrop.value).subscribe(
@@ -95,14 +95,6 @@ export class PickupDropComponent implements OnInit {
 
   }
 
-  setLocationLink(position: GeolocationPosition) {
-    const latitude=position.coords.latitude;
-    const longitude=position.coords.longitude;
-    const gooleMapLinks=`https://www.google.com/maps?q=${latitude},${longitude}`;
-    console.log(gooleMapLinks);
-    this.pickupDrop.patchValue({locationLink:gooleMapLinks});
-  }
-
   getLocation(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (navigator.geolocation) {
@@ -112,21 +104,38 @@ export class PickupDropComponent implements OnInit {
             resolve();
           },
           (error) => {
-            console.error('Error getting location', error);
-            alert('Unable to retrieve location');
-            reject(error);
+            if (error.code === error.PERMISSION_DENIED) {
+              console.warn('User denied the request for Geolocation.');
+              this.setLocationLinkForFallback();
+            } else {
+              console.error('Error getting location:', error);
+            }
+            resolve(); // Resolve the promise even if location retrieval fails
           }
         );
       } else {
         alert('Geolocation is not supported by this browser');
-        reject(new Error('Geolocation not supported'));
+        this.setLocationLinkForFallback(); // Optional: Set a default or fallback location link
+        resolve(); // Resolve the promise even if geolocation is not supported
       }
     });
   }
-
   
- 
-
+  setLocationLink(position: GeolocationPosition) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const googleMapLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+    console.log(googleMapLink);
+    this.pickupDrop.patchValue({ locationLink: googleMapLink });
+  }
+  
+  setLocationLinkForFallback() {
+    const fallbackLink = 'https://www.example.com';
+    console.log('Using fallback location link:', fallbackLink);
+    this.pickupDrop.patchValue({ locationLink: fallbackLink });
+  }
+  
+  
 }
 
 
