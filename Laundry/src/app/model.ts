@@ -14,11 +14,6 @@ export interface ratingData{
     userFeedback:string;
 }
 
-export interface dialog{
-    header:string;
-    content:string;
-}
-
 
 export enum contact{
     NUMBER='8860562188',
@@ -104,15 +99,4 @@ export const typeToSearch=[
     {type:"MensWear",value:MensWear},
     {type:"Carpet",value:Carpet}
 ]
-
-export const DialogMessages = {
-    ORDER_PLACED: {
-      header: "✨ Greno Cleaners - Your Garments, Our Priority!",
-      content: "Thank you for choosing Greno Cleaners. Your order has been placed successfully! 👗"
-    },
-    FEEDBACK: {
-      header: "📝 Greno Cleaners - Your Feedback Matters!",
-      content: "We value your opinion. Thank you for your valuable suggestion! 🌟"
-    }
-  };
 

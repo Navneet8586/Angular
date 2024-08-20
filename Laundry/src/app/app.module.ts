@@ -18,9 +18,6 @@ import { HomeComponent } from './home/home.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
-import { ThankYouDialogComponent } from './thank-you-dialog/thank-you-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -32,8 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     HomeComponent,
     OurServicesComponent,
     FooterComponent,
-    RatingComponent,
-    ThankYouDialogComponent
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +40,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
-    FormsModule,
-    MatDialogModule,
-    MatButtonModule
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

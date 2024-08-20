@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ThankYouDialogComponent } from '../thank-you-dialog/thank-you-dialog.component';
-import { timeSlotFilter, DialogMessages} from '../model';
+import { timeSlotFilter } from '../model';
 import { LaundryService } from '../laundry.service';
 import { Router } from '@angular/router';
 
@@ -20,8 +18,7 @@ export class PickupDropComponent implements OnInit {
   timeSlots=['10:00-11:00','11:00-12:00','12:00-01:00','01:00-02:00','02:00-03:00','03:00-04:00','04:00-05:00','05:00-06:00','06:00-07:00','07:00-08:00'];
   timeSlotFilter:timeSlotFilter[]=[];
 
-  constructor(private formBuilder:FormBuilder,private laundryService:LaundryService,
-    private router:Router,private dialog:MatDialog) { 
+  constructor(private formBuilder:FormBuilder,private laundryService:LaundryService,private router:Router) { 
     
   }
 
@@ -80,12 +77,7 @@ export class PickupDropComponent implements OnInit {
       this.laundryService.sendEmail(this.pickupDrop.value).subscribe(
         response => {
           console.log('Data submitted successfully', response);
-          this.dialog.open(ThankYouDialogComponent,{
-            data:{
-              title:DialogMessages.ORDER_PLACED.header,
-              message:DialogMessages.ORDER_PLACED.content
-            }
-          });
+          alert("Thank you for placing your order. We have received your request!");
         },
         error => {
           console.error('Error submitting data', error);

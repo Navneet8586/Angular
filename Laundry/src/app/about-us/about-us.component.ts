@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { contact } from '../model';
-import { services ,DialogMessages} from '../model';
-import { MatDialog } from '@angular/material/dialog';
-import { ThankYouDialogComponent } from '../thank-you-dialog/thank-you-dialog.component';
+import { services } from '../model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LaundryService } from '../laundry.service';
 
@@ -20,7 +18,7 @@ export class AboutUsComponent implements OnInit {
   lng: number = 7.815982;
 
   
-  constructor(private fb:FormBuilder,private service:LaundryService,private dialog:MatDialog) { }
+  constructor(private fb:FormBuilder,private service:LaundryService) { }
 
   ngOnInit(): void {
     this.contactForm=this.fb.group({
@@ -37,12 +35,7 @@ export class AboutUsComponent implements OnInit {
     this.service.contactUsMail(this.contactForm.value).subscribe(
       response => {
         console.log('Data submitted successfully', response);
-        this.dialog.open(ThankYouDialogComponent,{
-          data:{
-            title:DialogMessages.FEEDBACK.header,
-            message:DialogMessages.FEEDBACK.content
-          }
-        });
+        alert('Thank You For Your Valuable FeedBack.');
       },
       error => {
         console.error('Error submitting data', error);
