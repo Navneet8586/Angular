@@ -87,6 +87,7 @@ export class PickupDropComponent implements OnInit {
       console.error('Error during submission', error);
     } finally {
       this.pickupDrop.reset();
+      console.log("hello");
     }
   }
 
