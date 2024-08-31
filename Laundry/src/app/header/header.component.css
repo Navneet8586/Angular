@@ -7,7 +7,7 @@
     color: white;
 }
 .container{
-    background-color: cadetblue;
+    background-color: #016FAE;
 }
 .nav-item .nav-link.active {
     color: white; /* or any other style you want */
@@ -18,7 +18,7 @@
 .navbar{
     margin: 0;
     padding: 0;
-    background-color: cadetblue;
+    background-color: #016FAE;
     height: 100px;
 
 }

@@ -15,10 +15,10 @@
     height: 100%;
 }
 .carousel-indicators{
-    background-color: green;
+    background-color: #016FAE;
 }
 .stars {
-    color: green /* Set star color */
+    color: #016FAE /* Set star color */
   }
   
 .star{
@@ -33,7 +33,7 @@
 }
 
 .star-rating .fa-star.filled {
-    color: green;
+    color: #016FAE;
     /* filled star color */
 }
 .rate-us{
@@ -41,9 +41,9 @@
     height: 40px;
     margin-left: 40%;
     color: bg-success;
-    border: 2px solid green;
+    border: 2px solid #016FAE;
     border-radius: 20%;
-    background-color: green;
+    background-color: #016FAE;
 }
 
 @media (max-width:768px) {
@@ -55,9 +55,9 @@
         height: 40px;
         margin-left: 40%;
         color: bg-success;
-        border: 2px solid green;
+        border: 2px solid #016FAE;
         border-radius: 20%;
-        background-color: green;
+        background-color: #016FAE;
     }
     
 }
