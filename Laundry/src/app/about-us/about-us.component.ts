@@ -30,6 +30,13 @@ export class AboutUsComponent implements OnInit {
     })
   }
 
+  call(num:string){
+    window.location.href='tel:'+num;
+  }
+  mailUs(mail:string){
+    window.location.href = 'mailto:' + mail;
+  }
+
   submit(){
     console.log(this.contactForm.value);
     this.service.contactUsMail(this.contactForm.value).subscribe(

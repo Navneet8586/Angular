@@ -3,6 +3,10 @@
 }
 .about-us{
     font-size: 20px;
+    
+}
+.about-us:hover{
+    cursor: pointer;
 }
 .btn.dropdown-toggle{
     width: 100%;

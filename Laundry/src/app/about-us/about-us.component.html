@@ -4,11 +4,11 @@
         <p class="about-us mb-5" style="color: #016FAE;font-size: 20px; font-weight:bold;line-height:1.6;">Get in touch with Greno Cleaners for superior garment and home care services. Ensuring your satisfaction is our top priority.</p>
         <div class="phone mb-5">
             <i class="fa-solid fa-phone"></i>
-            <span class="about-us" style="color: #016FAE;font-size: 20px; font-weight:bold;"> Phone: {{contactDetails.NUMBER}}</span><br>
+            <span class="about-us" style="color: #016FAE;font-size: 20px; font-weight:bold;" (click)="call(contactDetails.NUMBER)"> Phone: {{contactDetails.NUMBER}}</span><br>
         </div>
         <div class="email mb-5">
             <i class="fa-solid fa-envelope"></i>
-            <span class="about-us" style="color: #016FAE;font-size: 20px; font-weight:bold;"> Email: {{contactDetails.EMAIL}}</span><br>
+            <span class="about-us" style="color: #016FAE;font-size: 20px; font-weight:bold;" (click)="mailUs(contactDetails.EMAIL)"> Email: {{contactDetails.EMAIL}}</span><br>
         </div>
         <div class="address mb-5">
             <i class="fa-solid fa-location-dot"></i>
@@ -64,14 +64,14 @@
         <div class="heart"></div>
         <div class="content-phone">
           <i class="fas fa-phone"></i>
-          <h2 style="padding-top: 25px;">Call Us</h2>
-          <h3>{{contactDetails.NUMBER}}</h3>
+          <h2 style="padding-top: 25px;cursor:pointer">Call Us</h2>
+          <h3 style="cursor: pointer;" (click)="call(contactDetails.NUMBER)">{{contactDetails.NUMBER}}</h3>
         </div>
         <div class="heart"></div>
         <div class="content-email">
           <i class="fas fa-envelope"></i>
           <h2 style="padding-top: 25px;">Email Us</h2>
-          <h3>{{contactDetails.EMAIL}}</h3>
+          <h3 style="cursor: pointer;" (click)="mailUs(contactDetails.EMAIL)">{{contactDetails.EMAIL}}</h3>
         </div>
 
       </div>
